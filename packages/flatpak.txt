@@ -1,0 +1,4 @@
+# Flatpaks installed on 2026-10-16
+# Install: flatpak install -y --noninteractive 
+
+org.vinegarhq.Sober

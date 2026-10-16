@@ -1,0 +1,4 @@
+[Default Applications]
+x-scheme-handler/http=cpak-open-uri.desktop;
+x-scheme-handler/https=cpak-open-uri.desktop;
+x-scheme-handler/mailto=cpak-open-uri.desktop;

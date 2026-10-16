@@ -1,0 +1,14 @@
+diff --git a/lua/config/options.lua b/lua/config/options.lua
+index 3ea1454..ef630f1 100644
+--- a/lua/config/options.lua
++++ b/lua/config/options.lua
+@@ -1,3 +1,9 @@
+ -- Options are automatically loaded before lazy.nvim startup
+ -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+ -- Add any additional options here
++
++-- Transparency lives in lua/plugins/transparency.lua (Catppuccin's
++-- transparent_background). Do NOT try to set `background = "NONE"` here:
++-- 'background' only accepts dark|light, so it raises E474 and aborts the rest
++-- of this file. The transparent look comes from the colourscheme emitting
++-- guibg=NONE, not from 'background'.

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 2daa8e2..13d9e17 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -2,7 +2,7 @@
+ 
+ _pkgname=quickshell
+ pkgname="$_pkgname-git"
+-pkgver=0.3.0.r0.g59e9c47
++pkgver=0.3.1.r10.g2d3b3e9
+ pkgrel=1
+ pkgdesc='Flexible toolkit for making desktop shells with QtQuick'
+ arch=(x86_64 aarch64)

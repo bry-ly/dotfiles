@@ -1,0 +1,66 @@
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+font-style = Regular
+font-size = 12
+
+# Theme — symlink to ukishima's wallpaper-driven palette
+# (~/.config/ghostty/themes/ghostty -> ~/.cache/ukishima/ghostty-colors).
+# Ukishima rewrites the target on every wallpaper change and fires
+# `busctl ... org.gtk.Actions Activate reload-config`, so this recolours
+# running windows live. Keep the rest of this file authoritative: colors set
+# here (background, foreground, palette) override anything the theme sets.
+theme = ghostty
+
+# Window
+# Separate from `theme`: tells GTK to derive the window's light/dark variant
+# from the terminal's own bg/fg instead of the system theme. Linux only.
+window-theme = ghostty
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+gtk-toolbar-style = flat
+
+# Transparency
+# No `background` key is set, so the default #282c34 is what gets blended
+# with the desktop. Ukishima's palette only supplies foreground/cursor/
+# selection/palette, never background, so this tint stays stable across
+# wallpaper changes.
+#
+# The blur is NOT done here. Ghostty's own `background-blur` key is a no-op on
+# Hyprland (it only works on macOS and KDE Plasma). Ghostty's only job is to
+# be transparent; the Hyprland plugin `hyprglass` then blurs the wallpaper
+# behind it. See ~/.config/hypr/modules/plugins.lua.
+background-opacity = 0.85
+# Let programs that paint an explicit cell background (fzf previews, coloured
+# `ls`, etc.) respect the opacity too — otherwise they render as opaque blocks
+# floating in an otherwise transparent window. Your nvim is already
+# `transparent = true`, so it is unaffected either way.
+background-opacity-cells = true
+
+# Cursor styling
+cursor-style = "bar"
+cursor-style-blink = false
+
+# Cursor styling + SSH session terminfo
+# (all shell integration options must be passed together)
+shell-integration-features = no-cursor,ssh-env
+
+# Keyboard bindings
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+# Send Shift+Enter as CSI-u so TUIs can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll

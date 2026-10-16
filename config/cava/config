@@ -1,0 +1,44 @@
+## Configuration file for CAVA. Rendered palette lives in themes/matugen
+# (written by matugen from ~/.config/matugen/templates/cava.ini -- do not
+# edit themes/matugen by hand). Colors below are only a fallback; the
+# `theme = 'matugen'` line is what actually applies the wallpaper palette.
+
+[general]
+; live-config = 0
+; framerate = 60
+; autosens = 1
+; sensitivity = 100
+; bars = 0
+; bar_width = 2
+; bar_spacing = 1
+; center_align = 1
+
+[input]
+; method = pulse
+; source = auto
+
+[output]
+; method = noncurses
+; orientation = bottom
+; channels = stereo
+; mono_option = average
+; reverse = 0
+
+[color]
+background = 'default'
+
+# Active palette: matugen renders this file on every wallpaper change
+# (config.toml [templates.cava] -> themes/matugen, post_hook reloads cava).
+theme = 'matugen'
+
+[smoothing]
+; monstercat = 0
+; waves = 0
+; noise_reduction = 77
+
+[eq]
+; 1 = 1
+; 2 = 1
+; 3 = 1
+; 4 = 1
+; 5 = 1

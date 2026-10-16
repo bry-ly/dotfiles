@@ -1,0 +1,633 @@
+/*
+
+Sidra × Matugen — Refined
+Save as:
+~/.config/matugen/templates/sidra.css
+Material You / Material 3 inspired theme
+*/
+
+/* ============================================================
+
+Core palette
+============================================================ */
+
+:root {
+/* Surfaces */
+--pageBG: #111509 !important;
+--shelfBG: #1a1d10 !important;
+--opaqueShelfBG: #1e2114 !important;
+--fallbackMaterialBG: #1e2114 !important;
+--genericJoeColor: #282b1e !important;
+
+/* Text */
+--systemPrimary: #e2e4d0 !important;
+--systemPrimary-vibrant: #e2e4d0 !important;
+--systemSecondary: #c5c8b5 !important;
+--systemSecondary-vibrant: #c5c8b5 !important;
+--systemTertiary: #8f9281 !important;
+--systemQuaternary: #454839 !important;
+--systemQuinary: #454839 !important;
+
+/* Borders / separators */
+--labelDivider: #454839 !important;
+--vibrantDivider: #8f9281 !important;
+
+/* Player */
+--playerBackground: #1e2114 !important;
+--playerBackgroundFallback: #1e2114 !important;
+--playerLCDBGFill: #282b1e !important;
+--playerMissingArtworkBg: #454839 !important;
+--playerMissingArtworkIcon: #c5c8b5 !important;
+--playerScrubberFill: #a6d700 !important;
+--playerScrubberTrack: #454839 !important;
+--playerPlatterButtonBGFill: #a6d700 !important;
+--playerPlatterButtonIconFill: #273500 !important;
+--playerDropShadow2: #000000 !important;
+
+/* Navigation */
+--segmentedControlBG: #1e2114 !important;
+--segmentedControlSelectedBG: #384c2b !important;
+
+/* Tracklist */
+--tracklistHoverColor: #282b1e !important;
+--tracklistAltRowColor: #1a1d10 !important;
+
+/* Materials */
+--systemStandardThickMaterialSover:
+#1e2114 !important;
+
+--systemHeaderMaterialSover:
+#282b1e !important;
+
+--systemToolbarTitlebarMaterialSover:
+#282b1e !important;
+}
+
+/* ============================================================
+
+Global aliases
+
+============================================================ */
+
+{
+/* Accent */
+--keyColor: #a6d700 !important;
+--keyColor-rollover: #bef500 !important;
+--keyColor-pressed: #a6d700 !important;
+--keyColor-deepPressed: #a6d700 !important;
+--keyColor-disabled: #3a4d00 !important;
+
+--musicKeyColor: #a6d700 !important;
+--musicBrandBG: #a6d700 !important;
+--selectionColor: #a6d700 !important;
+
+/* Chrome / LCD */
+--chromePlayerBGFill:
+#1e2114 !important;
+
+--lcd-bg-color:
+#282b1e !important;
+
+/* Useful semantic aliases */
+--sidra-accent: #a6d700 !important;
+--sidra-accent-hover: #3a4d00 !important;
+--sidra-accent-soft: #3a4d00 !important;
+
+--sidra-surface: #111509 !important;
+--sidra-surface-low:
+#1a1d10 !important;
+
+--sidra-surface-container:
+#1e2114 !important;
+
+--sidra-surface-high:
+#282b1e !important;
+
+--sidra-text: #e2e4d0 !important;
+--sidra-text-secondary:
+#c5c8b5 !important;
+
+--sidra-border:
+#454839 !important;
+
+--sidra-border-strong:
+#8f9281 !important;
+
+/* Scrollbars */
+scrollbar-color:
+#8f9281
+#111509
+!important;
+}
+
+/* ============================================================
+
+Base document
+============================================================ */
+
+html,
+body {
+background:
+#111509 !important;
+
+color:
+#e2e4d0 !important;
+
+color-scheme: dark;
+}
+
+/* ============================================================
+
+Selection
+============================================================ */
+
+::selection {
+background:
+#a6d700 !important;
+
+color:
+#273500 !important;
+}
+
+/* ============================================================
+
+Scrollbars
+============================================================ */
+
+::-webkit-scrollbar {
+width: 10px;
+height: 10px;
+}
+
+::-webkit-scrollbar-track {
+background:
+#111509 !important;
+}
+
+::-webkit-scrollbar-thumb {
+background:
+#454839 !important;
+
+border: 2px solid
+#111509 !important;
+
+border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background:
+#8f9281 !important;
+}
+
+/* ============================================================
+
+Player
+============================================================ */
+
+.chrome-player::before {
+background-color:
+#1e2114 !important;
+
+background-image: none !important;
+}
+
+.chrome-player {
+background-color:
+#1e2114 !important;
+
+border-color:
+#454839 !important;
+}
+
+/* ============================================================
+
+Side panels
+============================================================ */
+
+.side-panel {
+background-color:
+#111509 !important;
+
+backdrop-filter:
+blur(50px) saturate(100%) !important;
+
+-webkit-backdrop-filter:
+blur(50px) saturate(100%) !important;
+
+border-color:
+#454839 !important;
+}
+
+.side-panel.side-panel-header-wrapper,
+.side-panel .side-panel-header-wrapper,
+.side-panel-header-wrapper {
+background-color:
+#111509 !important;
+
+border-color:
+#454839 !important;
+}
+
+/* ============================================================
+
+Footer
+============================================================ */
+
+:is(
+footer,
+.scrollable-page footer
+) {
+background:
+#1a1d10 !important;
+
+background-color:
+#1a1d10 !important;
+
+border-color:
+#454839 !important;
+
+color:
+#e2e4d0 !important;
+}
+
+:is(
+footer,
+.scrollable-page footer
+) :is(
+a,
+button,
+select,
+[role="button"],
+[class*="dropdown"]
+) {
+background-color:
+#1e2114 !important;
+
+border-color:
+#454839 !important;
+
+color:
+#e2e4d0 !important;
+
+transition:
+background-color 150ms ease,
+border-color 150ms ease,
+color 150ms ease !important;
+}
+
+:is(
+footer,
+.scrollable-page footer
+) :is(
+a,
+button,
+select,
+[role="button"],
+[class*="dropdown"]
+):hover {
+background-color:
+#282b1e !important;
+
+border-color:
+#8f9281 !important;
+}
+
+/* ============================================================
+
+Country / region picker
+============================================================ */
+
+[class*="locale-switcher"] {
+background:
+#1e2114 !important;
+
+background-color:
+#1e2114 !important;
+
+color:
+#e2e4d0 !important;
+
+border-color:
+#454839 !important;
+}
+
+/* ============================================================
+
+Country / region banner
+============================================================ */
+
+[data-testid="banner-container"] {
+background:
+#1e2114 !important;
+
+background-color:
+#1e2114 !important;
+
+color:
+#e2e4d0 !important;
+
+border-color:
+#454839 !important;
+
+box-shadow:
+0 4px 16px
+#000000 !important;
+}
+
+[data-testid="banner-container"]
+[data-testid="close-button"] {
+color:
+#e2e4d0 !important;
+
+fill:
+#e2e4d0 !important;
+
+transition:
+color 150ms ease,
+opacity 150ms ease !important;
+}
+
+[data-testid="banner-container"]
+[data-testid="close-button"]:hover {
+color:
+#a6d700 !important;
+
+opacity: 1 !important;
+}
+
+[data-testid="banner-container"]
+[data-testid="close-button"] svg path {
+fill:
+currentColor !important;
+}
+
+[data-testid="banner-container"]
+[data-testid="dropdown-button"] {
+background-color:
+#282b1e !important;
+
+border-color:
+#8f9281 !important;
+
+color:
+#e2e4d0 !important;
+
+transition:
+background-color 150ms ease,
+border-color 150ms ease !important;
+}
+
+[data-testid="banner-container"]
+[data-testid="dropdown-button"]:hover {
+background-color:
+#333628 !important;
+
+border-color:
+#a6d700 !important;
+}
+
+/* ============================================================
+
+Primary buttons
+============================================================ */
+
+.button.primary button.click-action {
+background-color:
+#a6d700 !important;
+
+color:
+#273500 !important;
+
+border-color:
+#a6d700 !important;
+
+transition:
+background-color 150ms ease,
+box-shadow 150ms ease,
+transform 100ms ease !important;
+}
+
+.button.primary button.click-action:hover {
+background-color:
+#3a4d00 !important;
+
+color:
+#bef500 !important;
+
+box-shadow:
+0 2px 8px
+#000000 !important;
+}
+
+.button.primary button.click-action:active {
+transform: scale(0.98);
+}
+
+/* ============================================================
+
+Links
+============================================================ */
+
+a {
+color:
+#a6d700 !important;
+
+transition:
+color 150ms ease !important;
+}
+
+a:hover {
+color:
+#bef500 !important;
+}
+
+/* ============================================================
+
+Inputs / controls
+============================================================ */
+
+:is(
+input,
+textarea,
+select
+) {
+background-color:
+#1e2114 !important;
+
+color:
+#e2e4d0 !important;
+
+border-color:
+#454839 !important;
+}
+
+:is(
+input,
+textarea,
+select
+):focus {
+border-color:
+#a6d700 !important;
+
+outline:
+2px solid
+#a6d700 !important;
+
+outline-offset: -1px;
+}
+
+/* ============================================================
+
+Generic interactive states
+============================================================ */
+
+:is(
+button,
+[role="button"]
+) {
+transition:
+background-color 150ms ease,
+color 150ms ease,
+border-color 150ms ease,
+opacity 150ms ease !important;
+}
+
+:is(
+button,
+[role="button"]
+):hover {
+background-color:
+#282b1e !important;
+}
+
+:is(
+button,
+[role="button"]
+):focus-visible {
+outline:
+2px solid
+#a6d700 !important;
+
+outline-offset: 2px;
+}
+
+/* ============================================================
+
+Segmented controls / navigation
+============================================================ */
+
+:is(
+[role="tablist"],
+.segmented-control
+) {
+background-color:
+#1e2114 !important;
+
+border-color:
+#454839 !important;
+}
+
+:is(
+[role="tab"],
+.segmented-control button
+) {
+color:
+#c5c8b5 !important;
+}
+
+:is(
+[role="tab"][aria-selected="true"],
+.segmented-control button.active
+) {
+background-color:
+#384c2b !important;
+
+color:
+#d2eabd !important;
+}
+
+/* ============================================================
+
+Tracklist
+============================================================ */
+
+:is(
+.tracklist,
+.track-list
+) {
+background-color:
+#111509 !important;
+}
+
+.tracklist :is(
+tr,
+[role="row"]
+):hover {
+background-color:
+#282b1e !important;
+}
+
+.tracklist :is(
+tr:nth-child(even),
+[role="row"]:nth-child(even)
+) {
+background-color:
+#1a1d10 !important;
+}
+
+.tracklist :is(
+tr:nth-child(even),
+[role="row"]:nth-child(even)
+):hover {
+background-color:
+#282b1e !important;
+}
+
+/* ============================================================
+
+Dividers
+============================================================ */
+
+hr {
+border-color:
+#454839 !important;
+}
+
+/* ============================================================
+
+Disabled states
+============================================================ */
+
+:is(
+button,
+input,
+textarea,
+select,
+[role="button"]
+):disabled,
+:is(
+button,
+input,
+textarea,
+select,
+[role="button"]
+)[aria-disabled="true"] {
+opacity: 0.5 !important;
+cursor: not-allowed !important;
+}
+
+/* ============================================================
+
+Reduced motion
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+transition-duration: 0.01ms !important;
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+scroll-behavior: auto !important;
+}
+}

@@ -1,0 +1,22 @@
+# --- Quickshell Palette ---
+gui:
+  border: 'rounded'
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - '#a77ef5'
+      - 'bold'
+    inactiveBorderColor:
+      - '#18161b'
+    optionsTextColor:
+      - '#f57eb6'
+    selectedLineBgColor:
+      - '#1b132a'
+    cherryPickedCommitBgColor:
+      - '#271321'
+    cherryPickedCommitFgColor:
+      - '#030107'
+    unstagedChangesColor:
+      - '#f57eb6'
+    defaultFgColor:
+      - '#d1d1d1'

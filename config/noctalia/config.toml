@@ -1,0 +1,5 @@
+[wallpaper]
+enabled = true
+
+[wallpaper.default]
+path = "/home/bryly/Pictures/Wallpapers/current_wallpaper.jpg"

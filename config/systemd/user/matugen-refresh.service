@@ -1,0 +1,10 @@
+# Runs `matugen image` on the current Ukishima wallpaper so all template
+# outputs (kitty, foot, btop, fuzzel, gtk, ...) track wallpaper changes.
+# Triggered by matugen-refresh.path.
+[Unit]
+Description=Refresh matugen templates from Ukishima wallpaper
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/matugen-refresh.sh

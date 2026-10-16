@@ -1,0 +1,5 @@
+-- user.lua — your overrides, loaded LAST (Ryoku user.lua port).
+-- Survives preset / module updates: nothing else in ~/.config/hypr writes
+-- here. Examples:
+--   hl.config({ general = { gaps_in = 8 } })
+--   hl.bind("SUPER + Return", hl.dsp.exec_cmd("foot"))

@@ -1,0 +1,33 @@
+diff --git a/sddm.sh b/sddm.sh
+index 70df483..b584b0b 100755
+--- a/sddm.sh
++++ b/sddm.sh
+@@ -9,6 +9,7 @@ THEMES_DIR="$SCRIPT_DIR/themes"
+ SYSTEM_THEMES_DIR="/usr/share/sddm/themes"
+ SDDM_CONF_DIR="/etc/sddm.conf.d"
+ SDDM_CONF="$SDDM_CONF_DIR/theme.conf"
++SDDM_MAIN_CONF="/etc/sddm.conf"
+ 
+ # Reset Colors
+ trap 'echo -ne "\033[0m"' EXIT
+@@ -357,4 +358,20 @@ else
+     fi
+ fi
+ 
++# SDDM reads /etc/sddm.conf AFTER /etc/sddm.conf.d/*.conf, so a stale
++# Current= there silently overrides the file above. Sync it.
++if [ -f "$SDDM_MAIN_CONF" ] && grep -q "^Current=" "$SDDM_MAIN_CONF"; then
++    substep "Fixing conflicting Current= in $SDDM_MAIN_CONF (overrides conf.d)..."
++    sudo sed -i "s|^Current=.*|Current=$INSTALL_NAME|" "$SDDM_MAIN_CONF"
++fi
++
++# Remove stale theme-specific QML import path (e.g. from 'silent' theme).
++# It forces the old theme's components even after switching themes.
++if [ -f "$SDDM_MAIN_CONF" ] && grep -q "^GreeterEnvironment=.*/usr/share/sddm/themes/" "$SDDM_MAIN_CONF"; then
++    substep "Removing stale theme-specific GreeterEnvironment..."
++    sudo sed -i -E "s|QML2_IMPORT_PATH=[^,]*\/usr\/share\/sddm\/themes\/[^,]*,?||g" "$SDDM_MAIN_CONF"
++    sudo sed -i -E "s|^GreeterEnvironment=,+|GreeterEnvironment=|; s|,+$||; s|,,+|,|g" "$SDDM_MAIN_CONF"
++    sudo sed -i "/^GreeterEnvironment=$/d" "$SDDM_MAIN_CONF"
++fi
++
+ success "Theme '$INSTALL_NAME' is now active!"

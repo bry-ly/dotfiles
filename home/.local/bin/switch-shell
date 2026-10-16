@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# switch-shell — toggle between Ukishima and Tide-island
+# Usage: switch-shell [ukishima|tide-island|toggle]
+
+set -euo pipefail
+
+UKISHIMA_LAUNCHER="$HOME/.local/share/quickshell/ukishima/launch.sh"
+TIDE_SERVICE="tide-island.service"
+STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/.shell-mode"
+
+get_current() {
+    if [[ -f "$STATE_FILE" ]]; then
+        cat "$STATE_FILE"
+    else
+        # Default: check what's running
+        if systemctl --user is-active --quiet "$TIDE_SERVICE" 2>/dev/null; then
+            echo "tide-island"
+        else
+            echo "ukishima"
+        fi
+    fi
+}
+
+start_ukishima() {
+    echo "Switching to Ukishima..."
+    # Stop Tide-island
+    systemctl --user stop "$TIDE_SERVICE" 2>/dev/null || true
+    pkill -f "quickshell.*tide" 2>/dev/null || true
+    sleep 0.5
+
+    # Start Ukishima
+    if ! pgrep -f "quickshell.*ukishima" >/dev/null 2>&1; then
+        "$UKISHIMA_LAUNCHER" -d &
+        disown
+    fi
+
+    echo "ukishima" > "$STATE_FILE"
+    notify-send -u low "Shell Switched" "Now using Ukishima"
+}
+
+start_tide() {
+    echo "Switching to Tide-island..."
+    # Stop Ukishima
+    pkill -f "quickshell.*ukishima" 2>/dev/null || true
+    sleep 0.5
+
+    # Start Tide-island
+    systemctl --user start "$TIDE_SERVICE" 2>/dev/null || true
+
+    echo "tide-island" > "$STATE_FILE"
+    notify-send -u low "Shell Switched" "Now using Tide-island"
+}
+
+toggle() {
+    local current
+    current=$(get_current)
+    if [[ "$current" == "tide-island" ]]; then
+        start_ukishima
+    else
+        start_tide
+    fi
+}
+
+case "${1:-toggle}" in
+    ukishima|ukisma)
+        start_ukishima
+        ;;
+    tide|tide-island)
+        start_tide
+        ;;
+    toggle)
+        toggle
+        ;;
+    status)
+        get_current
+        ;;
+    *)
+        echo "Usage: $0 [ukishima|tide-island|toggle|status]"
+        exit 1
+        ;;
+esac

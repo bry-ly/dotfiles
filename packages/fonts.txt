@@ -1,0 +1,303 @@
+# Fonts referenced by name on 2026-10-16
+# Regenerate with: fc-list : family | tr ',' '\n' | sort -u
+
+Adwaita Mono
+Adwaita Sans
+Bitstream Vera Sans
+Bitstream Vera Sans Mono
+Bitstream Vera Serif
+C059
+Cantarell
+Carlito
+CaskaydiaCove Nerd Font
+CaskaydiaCove Nerd Font Mono
+CaskaydiaCove Nerd Font Propo
+CaskaydiaCove NF
+CaskaydiaCove NF ExtraLight
+CaskaydiaCove NF Light
+CaskaydiaCove NFM
+CaskaydiaCove NFM ExtraLight
+CaskaydiaCove NFM Light
+CaskaydiaCove NFM SemiBold
+CaskaydiaCove NFM SemiLight
+CaskaydiaCove NFP
+CaskaydiaCove NFP ExtraLight
+CaskaydiaCove NFP Light
+CaskaydiaCove NFP SemiBold
+CaskaydiaCove NFP SemiLight
+CaskaydiaCove NF SemiBold
+CaskaydiaCove NF SemiLight
+D050000L
+DejaVu Math TeX Gyre
+DejaVu Sans
+DejaVu Sans Condensed
+DejaVu Sans Light
+DejaVu Sans Mono
+DejaVu Serif
+DejaVu Serif Condensed
+FantasqueSansM Nerd Font
+FantasqueSansM Nerd Font Mono
+FantasqueSansM Nerd Font Propo
+FluentSystemIcons\-Filled
+FluentSystemIcons\-Light
+FluentSystemIcons\-Regular
+FluentSystemIcons\-Resizable
+FontAwesome
+Google Sans Flex
+Hack
+icomoon
+Inter
+Inter Black
+Inter Display
+Inter Display Black
+Inter Display ExtraBold
+Inter Display ExtraLight
+Inter Display Light
+Inter Display Medium
+Inter Display SemiBold
+Inter Display Thin
+Inter ExtraBold
+Inter ExtraLight
+Inter Light
+Inter Medium
+Inter SemiBold
+Inter Thin
+Inter Variable
+Iosevka Nerd Font
+Iosevka Nerd Font Propo
+Iosevka NF
+Iosevka NF ExtraBold
+Iosevka NF ExtraBold Obl
+Iosevka NF ExtraLight
+Iosevka NF ExtraLight Obl
+Iosevka NF Heavy
+Iosevka NF Heavy Obl
+Iosevka NF Light
+Iosevka NF Light Obl
+Iosevka NF Medium
+Iosevka NF Medium Obl
+Iosevka NF Obl
+Iosevka NFP
+Iosevka NFP ExtraBold
+Iosevka NFP ExtraBold Obl
+Iosevka NFP ExtraLight
+Iosevka NFP ExtraLight Obl
+Iosevka NFP Heavy
+Iosevka NFP Heavy Obl
+Iosevka NFP Light
+Iosevka NFP Light Obl
+Iosevka NFP Medium
+Iosevka NFP Medium Obl
+Iosevka NFP Obl
+Iosevka NFP SemiBold
+Iosevka NFP SemiBold Obl
+Iosevka NFP Thin
+Iosevka NFP Thin Obl
+Iosevka NF SemiBold
+Iosevka NF SemiBold Obl
+Iosevka NF Thin
+Iosevka NF Thin Obl
+JetBrainsMono Nerd Font
+JetBrainsMono Nerd Font Mono
+JetBrainsMono Nerd Font Propo
+JetBrainsMono NF
+JetBrainsMono NF ExtraBold
+JetBrainsMono NF ExtraLight
+JetBrainsMono NF Light
+JetBrainsMono NFM
+JetBrainsMono NF Medium
+JetBrainsMono NFM ExtraBold
+JetBrainsMono NFM ExtraLight
+JetBrainsMono NFM Light
+JetBrainsMono NFM Medium
+JetBrainsMono NFM SemiBold
+JetBrainsMono NFM Thin
+JetBrainsMono NFP
+JetBrainsMono NFP ExtraBold
+JetBrainsMono NFP ExtraLight
+JetBrainsMono NFP Light
+JetBrainsMono NFP Medium
+JetBrainsMono NFP SemiBold
+JetBrainsMono NFP Thin
+JetBrainsMono NF SemiBold
+JetBrainsMono NF Thin
+JetBrainsMonoNL Nerd Font
+JetBrainsMonoNL Nerd Font Mono
+JetBrainsMonoNL Nerd Font Propo
+JetBrainsMonoNL NF
+JetBrainsMonoNL NF ExtraBold
+JetBrainsMonoNL NF ExtraLight
+JetBrainsMonoNL NF Light
+JetBrainsMonoNL NFM
+JetBrainsMonoNL NF Medium
+JetBrainsMonoNL NFM ExtraBold
+JetBrainsMonoNL NFM ExtraLight
+JetBrainsMonoNL NFM Light
+JetBrainsMonoNL NFM Medium
+JetBrainsMonoNL NFM SemiBold
+JetBrainsMonoNL NFM Thin
+JetBrainsMonoNL NFP
+JetBrainsMonoNL NFP ExtraBold
+JetBrainsMonoNL NFP ExtraLight
+JetBrainsMonoNL NFP Light
+JetBrainsMonoNL NFP Medium
+JetBrainsMonoNL NFP SemiBold
+JetBrainsMonoNL NFP Thin
+JetBrainsMonoNL NF SemiBold
+JetBrainsMonoNL NF Thin
+Liberation Mono
+Liberation Sans
+Liberation Serif
+Material Symbols Outlined
+Material Symbols Rounded
+Material Symbols Sharp
+MesloLGLDZ Nerd Font
+MesloLGLDZ Nerd Font Mono
+MesloLGLDZ Nerd Font Propo
+MesloLGL Nerd Font
+MesloLGL Nerd Font Mono
+MesloLGL Nerd Font Propo
+MesloLGMDZ Nerd Font
+MesloLGMDZ Nerd Font Mono
+MesloLGMDZ Nerd Font Propo
+MesloLGM Nerd Font
+MesloLGM Nerd Font Mono
+MesloLGM Nerd Font Propo
+MesloLGSDZ Nerd Font
+MesloLGSDZ Nerd Font Mono
+MesloLGSDZ Nerd Font Propo
+MesloLGS Nerd Font
+MesloLGS Nerd Font Mono
+MesloLGS Nerd Font Propo
+Nimbus Mono PS
+Nimbus Roman
+Nimbus Sans
+Nimbus Sans Narrow
+Noto Color Emoji
+Noto Fangsong KSS Rotated
+Noto Fangsong KSS Vertical
+Noto Kufi Arabic
+Noto Kufi Arabic Black
+Noto Kufi Arabic Light
+Noto Kufi Arabic Medium
+Noto Kufi Arabic Thin
+Noto Music
+Noto Naskh Arabic
+Noto Naskh Arabic Medium
+Noto Naskh Arabic UI
+Noto Naskh Arabic UI Medium
+Noto Nastaliq Urdu
+Noto Rashi Hebrew
+Noto Rashi Hebrew Blk
+Noto Rashi Hebrew Light
+Noto Rashi Hebrew Med
+Noto Rashi Hebrew Thin
+Noto Sans
+Noto Sans Adlam
+Noto Sans Adlam Unjoined
+Noto Sans Anatolian Hieroglyphs
+Noto Sans Arabic
+Noto Sans Arabic Blk
+Noto Sans Arabic Light
+Noto Sans Arabic Med
+Noto Sans Arabic Thin
+Noto Sans Arabic UI
+Noto Sans Arabic UI Bk
+Noto Sans Arabic UI Lt
+Noto Sans Arabic UI Md
+Noto Sans Arabic UI Th
+Noto Sans Armenian
+Noto Sans Armenian Black
+Noto Sans Armenian Light
+Noto Sans Armenian Medium
+Noto Sans Armenian Thin
+Noto Sans Avestan
+Noto Sans Balinese
+Noto Sans Balinese Medium
+Noto Sans Bamum
+Noto Sans Bamum Medium
+Noto Sans Bassa Vah
+Noto Sans Bassa Vah Medium
+Noto Sans Batak
+Noto Sans Bengali
+Noto Sans Bengali Black
+Noto Sans Bengali Light
+Noto Sans Bengali Medium
+Noto Sans Bengali Thin
+Noto Sans Bengali UI
+Noto Sans Bengali UI Black
+Noto Sans Bengali UI Light
+Noto Sans Bengali UI Medium
+Noto Sans Bengali UI Thin
+Noto Sans Bhaiksuki
+Noto Sans Black
+Noto Sans Brahmi
+Noto Sans Buginese
+Noto Sans Buhid
+Noto Sans Canadian Aboriginal
+Noto Sans Canadian Aboriginal Black
+Noto Sans Canadian Aboriginal Light
+Noto Sans Canadian Aboriginal Medium
+Noto Sans Canadian Aboriginal Thin
+Noto Sans Carian
+Noto Sans Caucasian Albanian
+Noto Sans Chakma
+Noto Sans Cham
+Noto Sans Cham Black
+Noto Sans Cham Light
+Noto Sans Cham Medium
+Noto Sans Cham Thin
+Noto Sans Cherokee
+Noto Sans Cherokee Black
+Noto Sans Cherokee Light
+Noto Sans Cherokee Medium
+Noto Sans Cherokee Thin
+Noto Sans Chorasmian
+Noto Sans CJK HK
+Noto Sans CJK HK Black
+Noto Sans CJK HK DemiLight
+Noto Sans CJK HK Light
+Noto Sans CJK HK Medium
+Noto Sans CJK HK Thin
+Noto Sans CJK JP
+Noto Sans CJK JP Black
+Noto Sans CJK JP DemiLight
+Noto Sans CJK JP Light
+Noto Sans CJK JP Medium
+Noto Sans CJK JP Thin
+Noto Sans CJK KR
+Noto Sans CJK KR Black
+Noto Sans CJK KR DemiLight
+Noto Sans CJK KR Light
+Noto Sans CJK KR Medium
+Noto Sans CJK KR Thin
+Noto Sans CJK SC
+Noto Sans CJK SC Black
+Noto Sans CJK SC DemiLight
+Noto Sans CJK SC Light
+Noto Sans CJK SC Medium
+Noto Sans CJK SC Thin
+Noto Sans CJK TC
+Noto Sans CJK TC Black
+Noto Sans CJK TC DemiLight
+Noto Sans CJK TC Light
+Noto Sans CJK TC Medium
+Noto Sans CJK TC Thin
+Noto Sans Coptic
+Noto Sans Cuneiform
+Noto Sans Cypriot
+Noto Sans Cypro Minoan
+Noto Sans Deseret
+Noto Sans Devanagari
+Noto Sans Devanagari Black
+Noto Sans Devanagari Light
+Noto Sans Devanagari Medium
+Noto Sans Devanagari Thin
+Noto Sans Devanagari UI
+Noto Sans Devanagari UI Black
+Noto Sans Devanagari UI Light
+Noto Sans Devanagari UI Medium
+Noto Sans Devanagari UI Thin
+Noto Sans Duployan
+Noto Sans EgyptHiero
+Noto Sans Egyptian Hieroglyphs

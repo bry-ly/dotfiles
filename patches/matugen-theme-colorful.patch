@@ -1,0 +1,212 @@
+diff --git a/package.json b/package.json
+index fc21db5..b85009e 100644
+--- a/package.json
++++ b/package.json
+@@ -1,16 +1,12 @@
+ {
+-  "name": "matugen-theme",
+-  "displayName": "Matugen Theme",
+-  "description": "A VSCode theme using Material You color palettes from Matugen",
+-  "publisher": "haikalllp",
+-  "author": "haikalllp",
+-  "contributors": [
+-    {
+-      "name": "haikalllp"
+-    }
+-  ],
++  "name": "matugen-theme-colorful",
++  "displayName": "Matugen Theme Colorful",
++  "description": "A dynamic Matugen theme with colorful syntax highlighting for VS Code",
++  "publisher": "local",
++  "author": "local",
++  "contributors": [],
+   "license": "MIT",
+-  "version": "1.0.2",
++  "version": "1.0.0",
+   "repository": {
+     "type": "git",
+     "url": "https://github.com/haikalllp/vscode-matugen-theme"
+@@ -42,22 +38,22 @@
+   "contributes": {
+     "commands": [
+       {
+-        "command": "matugenTheme.update",
++        "command": "matugenColorful.update",
+         "title": "Update Theme",
+-        "category": "Matugen Theme",
++        "category": "Matugen Colorful",
+         "icon": "$(refresh)"
+       },
+       {
+-        "command": "matugenTheme.clearCache",
++        "command": "matugenColorful.clearCache",
+         "title": "Clear Cache",
+-        "category": "Matugen Theme",
++        "category": "Matugen Colorful",
+         "icon": "$(trash)"
+       }
+     ],
+     "configuration": {
+       "title": "Matugen Theme",
+       "properties": {
+-        "matugenTheme.autoUpdate": {
++        "matugenColorful.autoUpdate": {
+           "type": "boolean",
+           "default": true,
+           "description": "Automatically update theme when matugen color palette changes. Uses file watching with polling fallback.",
+@@ -67,13 +63,13 @@
+     },
+     "themes": [
+       {
+-        "label": "Matugen",
++        "label": "Matugen Colorful",
+         "uiTheme": "vs-dark",
+         "path": "./themes/matugen.json",
+         "_watch": true
+       },
+       {
+-        "label": "Matugen Bordered",
++        "label": "Matugen Colorful Bordered",
+         "uiTheme": "vs-dark",
+         "path": "./themes/matugen-bordered.json",
+         "_watch": true
+diff --git a/src/extension.ts b/src/extension.ts
+index e283ac4..0c160a3 100644
+--- a/src/extension.ts
++++ b/src/extension.ts
+@@ -83,14 +83,14 @@ class ThemeManager {
+ 
+         // Register commands
+         context.subscriptions.push(
+-            vscode.commands.registerCommand('matugenTheme.update', () => this.forceUpdate()),
+-            vscode.commands.registerCommand('matugenTheme.clearCache', () => this.clearCache()),
++            vscode.commands.registerCommand('matugenColorful.update', () => this.forceUpdate()),
++            vscode.commands.registerCommand('matugenColorful.clearCache', () => this.clearCache()),
+         );
+ 
+         // Setup configuration listener
+         context.subscriptions.push(
+             vscode.workspace.onDidChangeConfiguration((event) => {
+-                if (event.affectsConfiguration('matugenTheme')) {
++                if (event.affectsConfiguration('matugenColorful')) {
+                     this.handleConfigChange();
+                 }
+             }),
+@@ -123,7 +123,7 @@ class ThemeManager {
+             vscode.StatusBarAlignment.Right,
+             100,
+         );
+-        this.statusBarItem.command = 'matugenTheme.update';
++        this.statusBarItem.command = 'matugenColorful.update';
+         this.statusBarItem.tooltip = 'Matugen Theme - Click to update';
+         this.context?.subscriptions.push(this.statusBarItem);
+     }
+@@ -165,7 +165,7 @@ class ThemeManager {
+     // ========================================================================
+ 
+     private isAutoUpdateEnabled(): boolean {
+-        return vscode.workspace.getConfiguration('matugenTheme').get('autoUpdate', true);
++        return vscode.workspace.getConfiguration('matugenColorful').get('autoUpdate', true);
+     }
+ 
+     private handleConfigChange(): void {
+diff --git a/src/template.ts b/src/template.ts
+index 732c8ba..db591d7 100644
+--- a/src/template.ts
++++ b/src/template.ts
+@@ -156,6 +156,32 @@ function createSemanticColors(colors: Color[], isDark: boolean): SemanticColors
+     // Create muted foreground
+     const fgMuted = isDark ? fg.darken(0.3) : fg.lighten(0.4);
+ 
++    // Keep the workbench palette tied to the wallpaper, but use a deliberately
++    // colorful, contrast-checked palette for syntax. This prevents blue/gray
++    // Material palettes from collapsing every token into the same two colors.
++    const syntax = isDark
++        ? {
++              keyword: '#cba6f7',
++              string: '#a6e3a1',
++              number: '#fab387',
++              function: '#89b4fa',
++              type: '#f9e2af',
++              variable: '#cdd6f4',
++              comment: '#7f849c',
++              operator: '#89dceb',
++          }
++        : {
++              keyword: '#8839ef',
++              string: '#178b55',
++              number: '#b35c00',
++              function: '#1e66f5',
++              type: '#8a5a00',
++              variable: '#1e1e2e',
++              comment: '#6c7086',
++              operator: '#0f7185',
++          };
++    const syntaxColor = (hex: string) => ensureContrast(Color(hex), bg, 4.5);
++
+     // Adjust all accent colors for the background
+     const adjustColor = (c: Color) => ensureContrast(adjustForBackground(c, bg), bg, 4.5);
+ 
+@@ -178,20 +204,20 @@ function createSemanticColors(colors: Color[], isDark: boolean): SemanticColors
+         info: adjustColor(colors[4]), // Blue
+ 
+         // Syntax colors
+-        keyword: adjustColor(colors[5]), // Magenta/Purple
+-        string: adjustColor(colors[2]), // Green
+-        number: adjustColor(colors[3]), // Orange
+-        function: adjustColor(colors[4]), // Blue
+-        type: adjustColor(colors[6]), // Cyan
+-        variable: adjustColor(colors[1]), // Red
+-        comment: fgMuted,
+-        operator: adjustColor(colors[6]), // Cyan
++        keyword: syntaxColor(syntax.keyword),
++        string: syntaxColor(syntax.string),
++        number: syntaxColor(syntax.number),
++        function: syntaxColor(syntax.function),
++        type: syntaxColor(syntax.type),
++        variable: syntaxColor(syntax.variable),
++        comment: syntaxColor(syntax.comment),
++        operator: syntaxColor(syntax.operator),
+ 
+         // Git colors
+-        added: adjustColor(colors[2]),
+-        modified: adjustColor(colors[3]),
+-        deleted: adjustColor(colors[1]),
+-        ignored: fgMuted,
++        added: syntaxColor(syntax.string),
++        modified: syntaxColor(syntax.number),
++        deleted: syntaxColor('#f38ba8'),
++        ignored: syntaxColor(syntax.comment),
+     };
+ }
+ 
+@@ -243,9 +269,27 @@ export default (colors: Color[], bordered: boolean) => {
+         type: themeType,
+         semanticHighlighting: true,
+         semanticTokenColors: {
+-            enumMember: { foreground: semantic.type.hex() },
++            namespace: { foreground: semantic.type.hex() },
++            class: { foreground: semantic.type.hex() },
++            enum: { foreground: semantic.keyword.hex() },
++            interface: { foreground: semantic.type.hex() },
++            struct: { foreground: semantic.type.hex() },
++            typeParameter: { foreground: semantic.type.hex() },
++            type: { foreground: semantic.type.hex() },
++            parameter: { foreground: semantic.number.hex() },
++            variable: { foreground: semantic.variable.hex() },
++            property: { foreground: semantic.type.hex() },
++            function: { foreground: semantic.function.hex() },
++            method: { foreground: semantic.function.hex() },
++            keyword: { foreground: semantic.keyword.hex() },
++            operator: { foreground: semantic.operator.hex() },
++            string: { foreground: semantic.string.hex() },
++            number: { foreground: semantic.number.hex() },
++            comment: { foreground: semantic.comment.hex() },
++            decorator: { foreground: semantic.keyword.hex() },
++            enumMember: { foreground: semantic.number.hex() },
+             'variable.constant': { foreground: semantic.number.hex() },
+-            'variable.defaultLibrary': { foreground: semantic.type.hex() },
++            'variable.defaultLibrary': { foreground: semantic.function.hex() },
+         },
+         colors: {
+             // ================================================================

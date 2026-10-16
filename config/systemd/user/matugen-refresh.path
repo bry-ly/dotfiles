@@ -1,0 +1,16 @@
+# Re-render matugen templates whenever a watched wallpaper source changes.
+# Ukishima normally writes the state file; current_wallpaper.jpg is also
+# supported for manual wallpaper changes.
+# Enable with: systemctl --user enable --now matugen-refresh.path
+# Remove with: systemctl --user disable --now matugen-refresh.path
+[Unit]
+Description=Watch wallpaper sources for matugen refresh
+
+[Path]
+PathChanged=%h/.local/state/ukishima-wallpaper
+# Also refresh when the standalone current_wallpaper.jpg is replaced.
+PathChanged=%h/Pictures/Wallpapers/current_wallpaper.jpg
+Unit=matugen-refresh.service
+
+[Install]
+WantedBy=default.target
